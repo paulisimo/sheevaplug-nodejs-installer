@@ -5,14 +5,15 @@ sudo aptitude install build-essential openssl libssl-dev
 orig_dir=$(pwd)
 work_dir=/tmp
 cd $work_dir
-rm -rf $work_dir/node-v0.10.10
-wget -O - http://nodejs.org/dist/v0.10.10/node-v0.10.10.tar.gz|tar xz
+rm -rf $work_dir/node-v0.10.11
+#http://nodejs.org/dist/v0.10.11/node-v0.10.11.tar.gz
+wget -O - http://nodejs.org/dist/v0.10.11/node-v0.10.11.tar.gz|tar xz
 # patch files
-patch_dir=$work_dir/node-v0.10.10/deps/v8/
+patch_dir=$work_dir/node-v0.10.11/deps/v8/
 p1=$patch_dir/SConstruct.patch
 p2=$patch_dir/src_arm_macro.patch
 echo "--- SConstruct	2013-06-04 15:13:46.000000000 -0400
-+++ ../../../node-v0.10.10-custom/deps/v8/SConstruct	2013-06-04 15:13:46.000000000 -0400
++++ ../../../node-v0.10.10/deps/v8/SConstruct	2013-06-04 15:13:46.000000000 -0400
 @@ -80,8 +80,8 @@
    },
    'gcc': {
